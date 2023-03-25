@@ -1,9 +1,11 @@
 const textInput = document.querySelector('#validation-input');
 console.log(textInput.getAttribute('data-length'));
 textInput.addEventListener('blur', event => {
-    if (event.target.value.length === textInput.getAttribute('data-length')) {
-        textInput.classList.add('valid')
+    if (event.currentTarget.value.length === Number(textInput.dataset.length)) {
+        textInput.classList.add('valid');
+        textInput.classList.remove('invalid');
     } else {
-		textInput.classList.add('invalid')
+		textInput.classList.add('invalid');
+    textInput.classList.remove('valid');
     }
 })
